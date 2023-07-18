@@ -30,7 +30,7 @@ namespace HangedMan
             foreach (var button in buttonViews) 
             {
                 button.Release();
-                Object.Destroy(button);
+                Object.Destroy(button.gameObject);
             }
         }
 
@@ -46,7 +46,8 @@ namespace HangedMan
                 var associatedSymbol = allowedSymbols[i];
                 var instance = Object.Instantiate(prefab);
 
-                instance.transform.SetParent(view.ButtonsRoot);
+                instance.transform.localScale = Vector3.one;
+                instance.transform.SetParent(view.ButtonsRoot, false);
                 instance.SetText(associatedSymbol);
 
                 instance.Initialize();

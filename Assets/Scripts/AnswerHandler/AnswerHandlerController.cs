@@ -50,9 +50,10 @@ namespace HangedMan
         {
             foreach (var viewLetterPair in viewLettersDictionary)
             {
-                Object.Destroy(viewLetterPair.Key);
-                viewLettersDictionary.Clear();
+                var view = viewLetterPair.Key.gameObject;
+                Object.Destroy(view);
             }
+            viewLettersDictionary.Clear();
         }
 
         private void CreateLetterViews()
@@ -68,7 +69,7 @@ namespace HangedMan
                 instance.SetLetter(letter);
                 instance.SetLetterActive(false);
 
-                instance.transform.SetParent(view.LettersContainer);
+                instance.transform.SetParent(view.LettersContainer, false);
 
                 viewLettersDictionary.Add(instance, letter);
             }

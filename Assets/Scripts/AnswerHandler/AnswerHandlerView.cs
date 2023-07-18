@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace HangedMan
 {
@@ -14,21 +13,5 @@ namespace HangedMan
 
         public AnswerLetterView LetterViewPrefab => letterViewPrefab;
         public Transform LettersContainer => lettersContainer;
-    }
-
-    public class AnswerLetterView : MonoBehaviour
-    {
-        [SerializeField]
-        private Text text;
-
-        public void SetLetter(char letter) 
-        {
-            text.text = letter.ToString();
-        }
-
-        public void SetLetterActive(bool isActive) 
-        {
-            text.gameObject.SetActive(isActive);
-        }
     }
 }

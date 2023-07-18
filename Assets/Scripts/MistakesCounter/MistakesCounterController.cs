@@ -15,20 +15,18 @@ namespace HangedMan
         protected override void InitializeInternal()
         {
             keyboardModel.KeyPressed += OnKeyPressed;
-            model.MistakeMade += OnMistakeMade;
-
-            ActivateCurrentStepView();
+            model.MistakeMade += HandleMistakeMake;
         }
 
         protected override void ReleaseInternal()
         {
             keyboardModel.KeyPressed -= OnKeyPressed;
-            model.MistakeMade -= OnMistakeMade;
+            model.MistakeMade -= HandleMistakeMake;
 
             DisableAllStepViews();
         }
 
-        private void OnMistakeMade()
+        private void HandleMistakeMake()
         {
             ActivateCurrentStepView();
         }
